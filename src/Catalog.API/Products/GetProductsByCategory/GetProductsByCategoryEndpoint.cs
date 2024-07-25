@@ -13,7 +13,7 @@ namespace Catalog.API.Products.CreateProduct.GetProductsByCategory
             {
                 var result = await sender.Send(new GetProductByCategoryQuery(category));
 
-                if(result.products == null) {
+                if(result.Products == null) {
                     return Results.BadRequest(new { error = $"No products are available for category={category}" });
 
                 }
