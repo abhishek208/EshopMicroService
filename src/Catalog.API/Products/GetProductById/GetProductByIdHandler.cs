@@ -14,10 +14,10 @@ namespace Catalog.API.Products.GetProductById
         {
             logger.LogInformation($"GetProductByIdQuery===>{request}");
             var product = await session.LoadAsync<Product>(request.id,cancellationToken);
-            //if(product == null)
-            //{
-            //    throw new ProductNotFoundException();
-            //}
+            if (product == null)
+            {
+                throw new ProductNotFoundException((Guid)request.id);
+            }
 
             return new GetProductByIdResult(product);
         }
