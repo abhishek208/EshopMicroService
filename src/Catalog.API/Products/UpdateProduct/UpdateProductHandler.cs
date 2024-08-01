@@ -20,7 +20,7 @@ namespace Catalog.API.Products.UpdateProduct
         }
 
     }
-    public class UpdateProductHandler(IDocumentSession session, ILogger<GetProductByIdQueryHandler> logger) : ICommandHandler<UpdateProductCommand, UpdateProductResult>
+    public class UpdateProductHandler(IDocumentSession session) : ICommandHandler<UpdateProductCommand, UpdateProductResult>
     {
         public async  Task<UpdateProductResult> Handle(UpdateProductCommand request, CancellationToken cancellationToken)
         {
